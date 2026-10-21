@@ -11,15 +11,24 @@ android {
         applicationId = "com.bluew9.bulwark"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.0.1"
+    }
+
+    signingConfigs {
+        create("release") {
+            // The key and the passwords come from GitHub Secrets while building. They are never in the code.
+            System.getenv("KEYSTORE_PATH")?.let { storeFile = file(it) }
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD")
+        }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            // Debug signing for now so the APK installs. Replace with a fixed release key later.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 
