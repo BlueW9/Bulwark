@@ -1,0 +1,1 @@
+Offline app firewall that blocks chosen apps from the network.
