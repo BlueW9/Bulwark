@@ -1,0 +1,1 @@
+An app firewall. Choose which apps are cut off from the network, separately for Wi-Fi and mobile data. No root, no internet permission, works even when closed. Free and open source.
